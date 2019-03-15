@@ -39,6 +39,7 @@
 #include "Core/HW/Wiimote.h"
 #include "Core/Host.h"
 #include "Core/Movie.h"
+#include "Core/DolphinWatch.h"
 
 #include "DolphinWX/Debugger/CodeWindow.h"
 #include "DolphinWX/Debugger/JitWindow.h"
@@ -55,8 +56,6 @@
 #include "UICommon/UICommon.h"
 
 #include "VideoCommon/VideoBackendBase.h"
-
-#include "Core/DolphinWatch.h"
 
 #if defined HAVE_X11 && HAVE_X11
 #include <X11/Xlib.h>
