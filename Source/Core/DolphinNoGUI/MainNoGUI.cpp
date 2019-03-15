@@ -26,6 +26,7 @@
 #include "Core/IOS/IOS.h"
 #include "Core/IOS/STM/STM.h"
 #include "Core/State.h"
+#include "Core/DolphinWatch.h"
 
 #include "UICommon/CommandLineParse.h"
 #include "UICommon/UICommon.h"
@@ -420,9 +421,15 @@ int main(int argc, char* argv[])
     updateMainFrameEvent.Wait();
   }
 
+  if (options.is_set("watch"))
+    DolphinWatch::Init(options.get("watch"));
+
   if (s_running.IsSet())
     platform->MainLoop();
   Core::Stop();
+
+  if (options.is_set("watch"))
+    DolphinWatch::Shutdown();
 
   Core::Shutdown();
   platform->Shutdown();
